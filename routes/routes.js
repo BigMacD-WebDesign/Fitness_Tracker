@@ -14,6 +14,7 @@ router.get("/api/workouts", (req, res) => {
     });
 });
 
+//Find and Update Routes by ID
 router.put("/api/workouts/:id", (req, res) => {
     db.findByIdAndUpdate(req.params.id,
         { $push: { exercises: req.body } }, { new: true })
@@ -25,6 +26,7 @@ router.put("/api/workouts/:id", (req, res) => {
         });
 });
 
+//POST route to create a new workout.
 router.post("/api/workouts", (req, res) => {
     db.create(req.body).then(records => {
         console.log(records);
@@ -34,6 +36,7 @@ router.post("/api/workouts", (req, res) => {
     });
 });
 
+//GET route to display workouts within 7 days.
 router.get("/api/workouts/range", (req, res) => {
     db.find({}).limit(7).then(records => {
         console.log(records);
@@ -56,5 +59,7 @@ router.get("/stats", (req, res) => {
 router.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, "../Develop/public/index.html"))
 });
+//END HTML Routes.
 
+//Export.
 module.exports = router;
