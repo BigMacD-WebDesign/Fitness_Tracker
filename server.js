@@ -1,24 +1,18 @@
 const express = require("express");
-const mongojs = require("mongojs");
+const mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost:27017/FitnessDB',
+ {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify:false});
+
+const PORT = process.env.PORT || 8080;
 
 const app = express();
 
-app.use(logger("dev"));
-
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(express.static("public"));
+app.use(express.static("Develop/public"));
 
+app.use(require("./routes/routes.js"));
 
-const databaseUrl = "FitnessDB";
-const collections = [""];
-
-const db = mongojs(databaseUrl, collections);
-
-db.on("error", error => {
-    console.log("Database Error: ", error);
-});
-
-app.get("/", (req, res) => {
-    res.send(index.html);
+app.listen(PORT, () => {
+    console.log(`App listening on ${PORT}`);
 });
