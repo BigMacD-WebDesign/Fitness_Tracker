@@ -1,6 +1,6 @@
 const express = require("express");
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/FitnessDB',
+mongoose.connect('mongodb://User:Password123@ds023398.mlab.com:23398/heroku_6f6mw4hl',
  {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify:false});
 
 const PORT = process.env.PORT || 8080;
