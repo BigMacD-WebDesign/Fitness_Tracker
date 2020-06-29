@@ -53,6 +53,7 @@ router.get("/exercise", (req, res) => {
     res.sendFile(path.join(__dirname, "../Develop/public/exercise.html"))
 });
 
+        //Routes to the stats.html
 router.get("/stats", (req, res) => {
     res.sendFile(path.join(__dirname, "../Develop/public/stats.html"))
 });
