@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
+//Creation of the new schema and collections:
 const FitnessSchema = new Schema([
     {
         workout: {
@@ -24,7 +25,9 @@ const FitnessSchema = new Schema([
             ]
     }
 ]);
+//End schema and collections
 
 const Fitness = mongoose.model("Fitness", FitnessSchema);
 
+//Required to export file.
 module.exports = Fitness;
