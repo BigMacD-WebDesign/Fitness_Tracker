@@ -1,3 +1,4 @@
+//Needed requirements:
 const router = require("express").Router();
 const db = require("../models/fitnessModel.js");
 const path = require("path");
