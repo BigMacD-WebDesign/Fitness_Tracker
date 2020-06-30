@@ -10,6 +10,7 @@ const PORT = process.env.PORT || 8080;
 
 const app = express();
 
+//Standard syntax for express functionality.
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("Develop/public"));
