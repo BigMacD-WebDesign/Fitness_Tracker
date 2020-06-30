@@ -1,5 +1,8 @@
+//Requirements.
 const express = require("express");
 const mongoose = require('mongoose');
+
+//Adding and connecting database to Heroku
 mongoose.connect('mongodb://User:Password123@ds023398.mlab.com:23398/heroku_6f6mw4hl',
  {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify:false});
 
@@ -13,6 +16,8 @@ app.use(express.static("Develop/public"));
 
 app.use(require("./routes/routes.js"));
 
+
+//Code to start app and listen for user input.
 app.listen(PORT, () => {
     console.log(`App listening on ${PORT}`);
 });
