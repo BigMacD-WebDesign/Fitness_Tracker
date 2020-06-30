@@ -15,6 +15,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("Develop/public"));
 
+//Requirement for retrieving data in the routes.js.
 app.use(require("./routes/routes.js"));
 
 
