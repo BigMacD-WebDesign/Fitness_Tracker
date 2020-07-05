@@ -3,8 +3,14 @@ const express = require("express");
 const mongoose = require('mongoose');
 
 //Adding and connecting database to Heroku
-mongoose.connect('mongodb://User:Password123@ds023398.mlab.com:23398/heroku_6f6mw4hl',
- {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify:false});
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/budget",
+  {
+    useNewUrlParser: true,
+    useFindAndModify: false,
+    useUnifiedTopology: true
+  });
+// mongoose.connect('mongodb://User:Password123@ds023398.mlab.com:23398/heroku_6f6mw4hl',
+//  {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify:false});
 
 const PORT = process.env.PORT || 8080;
 
